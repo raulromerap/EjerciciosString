@@ -23,10 +23,18 @@ public class Ejercicio02 {
 		// Se crea una cadena que contiene la contraseña
 		String contraseña = "odiobd001";
 
+		// Se crea una cadena la cual almacenará la contraseña del jugador 1
 		String jugador1 = "";
 
+		// Se crea una cadena la cual almacenará la contraseña del jugador 2
 		String jugador2 = "";
 
+		/*
+		 * Este bucle imprime un mensaje para los jugadores introduzcan una contraseña,
+		 * si el jugador 1, que es el que empieza, falla se le compara alfabeticamente
+		 * con la contraseña y le imprime el mensaje al jugador 2 y así hasta que uno
+		 * acierte, que se saldrá del bucle
+		 */
 		do {
 
 			System.out.println("Jugador 1 - Adivina la contraseña");
@@ -49,11 +57,15 @@ public class Ejercicio02 {
 
 		} while (!jugador1.equals(contraseña) || !jugador2.equals(contraseña));
 
+		// Se añade una condición que, en caso de que gane el jugador 1 se le dará la
+		// enhorabuena y en el caso que no salga ganador se le dará la enhorabuena al
+		// jugador 2
 		if (jugador1.equals(contraseña)) {
-			System.out.println("El jugador 1 ha ganado");
+			System.out.println("El jugador 1 ha ganado, enhorabuena");
 		} else {
-			System.out.println("El jugador 2 ha ganado");
+			System.out.println("El jugador 2 ha ganado, enhorabuena");
 		}
+		lectura.close();
 	}
 
 }
