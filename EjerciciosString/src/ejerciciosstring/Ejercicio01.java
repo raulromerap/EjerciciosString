@@ -15,14 +15,6 @@ public class Ejercicio01 {
 		// Se crea una cadena para guardar la primera frase
 		String segundaFrase = "";
 
-		char[] letrasPF;
-
-		char[] letrasSF;
-
-		int cont1 = 0;
-
-		int cont2 = 0;
-
 		// Se imprime por pantalla un mensaje para que el usuario inserte la primera
 		// frase
 		System.out.println("Escribe la primera frase");
@@ -35,23 +27,15 @@ public class Ejercicio01 {
 		// Se escanea y se guarda la cadena que ha insertado el usuario
 		segundaFrase = lectura.nextLine();
 
-		letrasPF = primeraFrase.toCharArray();
-
-		letrasSF = segundaFrase.toCharArray();
-
-		for (int i = 0; i < letrasPF.length; i++) {
-			cont1++;
-		}
-		for (int i = 0; i < letrasSF.length; i++) {
-			cont2++;
-		}
-
-		if (cont1 > cont2) {
-			System.out.println("La primera frase es más grande que la segunda");
+		// Si la primera frase es mas larga que la segunda se imprime por pantalla
+		// mensaje
+		if (primeraFrase.length() > segundaFrase.length()) {
+			System.out.println("La segunda frase es más corta que la primera");
 		} else {
-			System.out.println("La segunda frase es más grande que la primera");
+			System.out.println("La primera frase es más corta que la segunda");
 		}
 		
+		// Se cierra el escaner
 		lectura.close();
 	}
 
