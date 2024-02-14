@@ -14,28 +14,24 @@ public class Ejercicio05 {
 		
 		char[] resultado;
 		
-		String fraseInvertida = "";
-		
 		System.out.println("Introduce una frase");
 		frase = lectura.nextLine();
 		
 		cadena = frase.toCharArray();
 		
 		resultado = cadenaInversa(cadena);
-		
-		fraseInvertida = frase.valueOf(resultado);
-		
+
 		System.out.println(resultado);
+		
+		lectura.close();
 	}
 	
 	public static char[] cadenaInversa(char[] cadena) {
 		
-		char[] cadenaInversa = null;
+		char[] cadenaInversa = new char[cadena.length];
 		
-		for(int i = cadena.length - 1; i >= 0; i++) {
-			for(int j = 0; j < i; j++) {
-				cadenaInversa[j] = cadena[i];
-			}
+		for(int i = 0; i < cadena.length; i++) {
+				cadenaInversa[i] = cadena[(cadena.length-1) - i];
 		}
 		
 		return cadenaInversa;
