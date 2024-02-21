@@ -2,8 +2,16 @@ package ejerciciosstring;
 
 import java.util.Scanner;
 
+/**
+ * Esta clase te muestra la cadena que introduzcas del reves
+ */
 public class Ejercicio05 {
 
+	/**
+	 * Recoge la cadena introducida por el usuario y te muestra esta misma del reves
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
 
 		// Se llama a la funcion Scanner
@@ -30,6 +38,13 @@ public class Ejercicio05 {
 		lectura.close();
 	}
 
+	/**
+	 * Se encarga de ir desde el ultimo caracter de la cadena hasta el primero
+	 * concatenando estos caracteres en la cadena que se retorna
+	 * 
+	 * @param frase La cadena introducida por el usuario
+	 * @return Devuelve la cadena del usuario del reves
+	 */
 	public static String cadenaInversa(String frase) {
 
 		// Se crea una variable para la frase invertida

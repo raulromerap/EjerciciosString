@@ -2,14 +2,29 @@ package ejerciciosstring;
 
 import java.util.Scanner;
 
+/**
+ * Esta clase se encarga de codificar una palabra que le insertes
+ * 
+ * @author raulromerap
+ */
 public class Ejercicio10 {
 
-	private static final char[] CONJUNTO1 = 
-		{ 'e', 'i', 'k', 'm', 'p', 'q', 'r', 's', 't', 'u', 'v' };
+	/**
+	 * Atributo que guarda una tabla con los caracteres que se cogeran de la palabra
+	 */
+	public static final char[] CONJUNTO1 = { 'e', 'i', 'k', 'm', 'p', 'q', 'r', 's', 't', 'u', 'v' };
 
-	private static final char[] CONJUNTO2 = 
-		{ 'p', 'v', 'i', 'u', 'm', 't', 'e', 'r', 'k', 'q', 's' };
+	/**
+	 * Atributo que guarda una tabla con los caracteres que cambian a los del
+	 * conjunto 1
+	 */
+	public static final char[] CONJUNTO2 = { 'p', 'v', 'i', 'u', 'm', 't', 'e', 'r', 'k', 'q', 's' };
 
+	/**
+	 * Se encarga de recoger una palabra y manda a otra funcion las letras
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
 
 		Scanner lectura = new Scanner(System.in);
@@ -47,15 +62,15 @@ public class Ejercicio10 {
 
 		char cCodificado = ' ';
 
-		for(int i = 0; i < CONJUNTO1.length; i++) {
-			if(c == CONJUNTO1[i]) {
+		for (int i = 0; i < CONJUNTO1.length; i++) {
+			if (c == CONJUNTO1[i]) {
 				cCodificado = CONJUNTO2[i];
 				break;
-			}else {
+			} else {
 				cCodificado = c;
 			}
 		}
-		
+
 		return cCodificado;
 
 	}

@@ -6,72 +6,89 @@ import java.util.Scanner;
 public class Ejercicio16 {
 
 	public static void main(String[] args) {
-
-		Scanner lectura = new Scanner(System.in);
-
-		String jugador1 = "";
-
-		String jugador2 = "";
-
-		String pista = "";
+		//String para guardar la palabra
+		String palabra;
 		
-		String coincide = "";
+		//String para guardar el anagrama
+		String anagrama = "";
 		
-		char[] letras;
+		//String para guardar la respuesta
+		String intento;
 		
-		char[] letrasJ2;
-
-		System.out.println("Inserte una palabra");
-		jugador1 = lectura.next();
-
-		jugador1 = jugador1.trim();
-
-		letras = jugador1.toCharArray();
-
-		pista = anagrama(letras);
+		//Array de char para guadra la palabra por letras
+		char letras[];
 		
-		do {
-
-			lectura.nextLine();
-			
-			System.out.println(pista);
-			
-			System.out.println("Introduzca la palabra correcta");
-			jugador2 = lectura.next();
-
-		} while (!jugador2.equals(jugador1));
-
-		System.out.println("Correcto, la palabra era: " + jugador1);
+		//Char auxiliar para desordenar la palabra
+		char aux;
 		
-		lectura.close();
-
-	}
-
-	public static String anagrama(char[] letras) {
-
-		Random aleatorio = new Random();
-
-		String palabraDes = "";
-
-		char[] letrasDes = new char[letras.length];
-
-		for (int i = 0; i < letras.length; i++) {
-
-			letrasDes[i] = letras[aleatorio.nextInt(0, letras.length)];
-
-			palabraDes += letrasDes[i];
-
+		//Variable para la posicion
+		int pos;
+		
+		//Variable para el numero de letras acertadas
+		int aciertos;
+		
+		//Boolean para saber si ha acertado la palabra
+		boolean acertado = false;
+		
+		//Random para generar numero al azar
+		Random rand = new Random();
+		
+		//Scanner para leer del teclado
+		Scanner sc = new Scanner (System.in);
+		
+		//Pregunto por la palabra
+		System.out.println("Jugador 1, introduzca una palabra");
+		
+		//Leo del teclado
+		palabra = sc.next();
+		
+		//Creo el anagrama
+		letras = palabra.toCharArray();
+		
+		//Bucle que intercambia aleatoriamente la posion de las letras
+		for(int i=0; i<letras.length;i++) {
+			pos = rand.nextInt(0,letras.length);
+			aux=letras[i];
+			letras[i]=letras[pos];
+			letras[pos]=aux;
 		}
-
-		return palabraDes;
-
-	}
-	
-	public static char[] letrasCoin (char[] letrasJ2, char[] letras) {
 		
-		char[] coincidencia = {' '};
+		//Bucle que guarda el anagrama en un String
+		for (int i=0; i<letras.length;i++) {
+			anagrama += letras[i];
+		}
 		
-		return coincidencia;
+		//Hago que el jugador 2 adivine la palabra
+		while (!acertado) {
+			//Pregunto al jugador 2
+			System.out.println("Jugador 2, intente adivinar la palabra con este anagrama " + anagrama);
+			
+			//Leo del teclado
+			intento = sc.next();
+			
+			//Compruebo si es la palabra
+			if (palabra.equals(intento)) {
+				acertado = true;
+				continue;
+			}
+			
+			aciertos=0;
+			
+			//Comrpuebo cuantas letras ha acertado
+			for (int i=0; i<palabra.length();i++) {
+				if (palabra.charAt(i)==intento.charAt(i)) {
+					System.out.println(palabra.charAt(i) + " " + intento.charAt(i));
+					aciertos++;
+				}
+			}
+			
+			System.out.println("Prueba otra vez, has acertado " + aciertos + " letras");
+		}
+		
+		System.out.println("Enhorabuena, has acertado");
+		
+		//Cierro el Scanner
+		sc.close();
 	}
 
 }

@@ -2,8 +2,19 @@ package ejerciciosstring;
 
 import java.util.Scanner;
 
+/**
+ * Esta clase muestra cual de las dos frases del usuario es mas corta
+ * 
+ * @author raulromerap
+ */
 public class Ejercicio01 {
 
+	/**
+	 * El usuario escribe dos frases, se calculan sus longitudes y manda un mensaje
+	 * de cual es mas corta
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
 
 		// Se llama a la función Scanner para crear un objeto de este
@@ -34,7 +45,7 @@ public class Ejercicio01 {
 		} else {
 			System.out.println("La primera frase es más corta que la segunda");
 		}
-		
+
 		// Se cierra el escaner
 		lectura.close();
 	}
